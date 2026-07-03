@@ -1,12 +1,9 @@
 ---
-name: this is Ansible Test File
-hosts: all
-gather_facts: yes
+- name: this is Ansible Test File
+  hosts: all
+  gather_facts: yes
 
-tasks:
-  - name: display message
-    debug:
-      msg: "This is my First Playbook"
-
-
-...
+  tasks:
+    - name: Display message
+      ansible.builtin.debug:
+        msg: "This is my First Playbook"
