@@ -24,13 +24,16 @@
     - debug:
         msg: "Execution Environment Hostname: {{ hostname_output.stdout }}"
 
-    - name: Get EE container hostname
-      command: hostname
+    - name: Get EE hostname
       delegate_to: localhost
       run_once: true
+      shell: |
+        python3 - <<EOF
+        import socket
+        print(socket.gethostname())
+        EOF
       register: ee_hostname
 
-    - name: Display EE hostname
-      debug:
+    - debug:
         var: ee_hostname.stdout
-      run_once: true
+
