@@ -11,6 +11,7 @@
     - name: Print command
       command: hostname -f
       register: reg_cmd
+      delegate_to: localhost
 
     - name: print host name FQDN
       debug: 
