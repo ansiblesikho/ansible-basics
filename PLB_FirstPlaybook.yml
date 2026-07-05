@@ -7,3 +7,11 @@
     - name: Display message
       ansible.builtin.debug:
         msg: "This is my First Playbook"
+
+    - name: Print command
+      command: hostname -f
+      register: reg_cmd
+
+    - name: print host name FQDN
+      debug: 
+        var: reg_cmd  
