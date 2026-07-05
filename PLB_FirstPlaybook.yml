@@ -11,8 +11,15 @@
     - name: Print command
       command: hostname -f
       register: reg_cmd
-      delegate_to: localhost
+      #delegate_to: localhost
 
     - name: print host name FQDN
       debug: 
-        var: reg_cmd.stdout 
+        var: reg_cmd.stdout
+
+    - name: Get container hostname
+      command: hostname
+      register: hostname_output
+
+    - debug:
+        msg: "Execution Environment Hostname: {{ hostname_output.stdout }}"
