@@ -14,4 +14,4 @@
 
     - name: print host name FQDN
       debug: 
-        var: reg_cmd  
+        var: reg_cmd.stdout 
