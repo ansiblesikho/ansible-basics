@@ -23,3 +23,14 @@
 
     - debug:
         msg: "Execution Environment Hostname: {{ hostname_output.stdout }}"
+
+    - name: Get EE container hostname
+      command: hostname
+      delegate_to: localhost
+      run_once: true
+      register: ee_hostname
+
+    - name: Display EE hostname
+      debug:
+        var: ee_hostname.stdout
+      run_once: true
